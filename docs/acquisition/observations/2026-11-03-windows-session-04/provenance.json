@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "kind": "reviewed-windows-acquisition-subset",
+  "synthetic": false,
+  "session": "windows-session-04",
+  "originalCapture": {
+    "availableAtReview": true,
+    "verifiedSha256": "e7bc18fcecddd98a64186718ba53c1bec527ccc8c4f69a592ea66fb852a1c1a9",
+    "bytes": 32119020,
+    "frames": 1468
+  },
+  "fullSourceReview": {
+    "retainedLinesCompared": 79,
+    "retainedLineMismatches": 0,
+    "eventRecordsCompared": 70,
+    "eventMismatches": 0,
+    "forbiddenFields": 0,
+    "unaliasedIdentities": 0
+  },
+  "reviewedSessionArtifacts": {
+    "evidence.jsonl": {
+      "bytes": 1434307,
+      "sha256": "8f6c81c5e05461fb86a43f7286868074d17441c58f69b3b66e20d04a42c83e8b"
+    },
+    "evidence-index.jsonl": {
+      "bytes": 5769,
+      "sha256": "bf84f87087f9bb0795a8d625fd44214cfbca8ee04f22d5bb8d19a6c5412c5d65"
+    },
+    "events.jsonl": {
+      "bytes": 28468,
+      "sha256": "71a7b78015d5f2404d05fccd38236dd4ae527759d0fec40485d17af98de944ab"
+    },
+    "session.json": {
+      "bytes": 433,
+      "sha256": "e12c215ac025e708b419c5a79d22a43c70b5fba45a9bf448e6ece99c34f585a4"
+    },
+    "summary.md": {
+      "bytes": 4472,
+      "sha256": "6d1ad1ec6aea6eb4ec83ed45a693175e71dd3a705dce7992c661a8d696155675"
+    }
+  },
+  "retainedSubset": {
+    "frames": 23,
+    "sourceLines": [
+      1, 2, 10, 27, 31, 149, 150, 151, 154, 155, 156, 217, 218, 818, 1433, 1434,
+      1435, 1436, 1442, 1443, 1444, 1445, 1468, 1469
+    ],
+    "evidenceSha256": "42091f2427d155b92ee2daff260e84d4eea1b02e121b3ff5bc1e4ba778e62180",
+    "indexSha256": "d75ab98babd8a5f16fc3ed933f4dea3f6574c52377adf9fc92eb1f15f1b9ee99"
+  },
+  "events": {
+    "records": 70,
+    "segments": [1],
+    "firstEventID": 0,
+    "lastEventID": 69,
+    "nativeGameEndRecorded": false,
+    "resultRecorded": false
+  },
+  "review": "Full source streamed; hash, all retained lines and all derived event payloads/timestamps verified. Projected identity aliases and absence of credential/raw-error fields checked. Normal draft reported by operator and queue 400 observed during game. Post-game Lobby returns queue 440 while retaining old game id/rosters. Screen times, visible versions and privilege context were not recorded."
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "kind": "reviewed-windows-acquisition-subset",
+  "synthetic": false,
+  "session": "windows-session-05",
+  "originalCapture": {
+    "availableAtReview": true,
+    "verifiedSha256": "9b68d8160e2f4733923cbec750667010fdb1ea8cce3294f97b32642df2db497a",
+    "bytes": 214378,
+    "frames": 29
+  },
+  "fullSourceReview": {
+    "retainedLinesCompared": 10,
+    "retainedLineMismatches": 0,
+    "forbiddenFields": 0,
+    "unaliasedIdentities": 0
+  },
+  "reviewedSessionArtifacts": {
+    "evidence.jsonl": {
+      "bytes": 68022,
+      "sha256": "34a86d0d41649c7f37033b3b07d89554f0d6f7d3f26950fa17328fc9672c2d44"
+    },
+    "evidence-index.jsonl": {
+      "bytes": 937,
+      "sha256": "f88b0061bab42b38ae33b398e896611c375d9830734127242eacf8cb50fc09e4"
+    },
+    "events.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "session.json": {
+      "bytes": 433,
+      "sha256": "60fbdf5393b3375b24c61a1bb14772a677d1245941ea81a180959851358509b9"
+    },
+    "summary.md": {
+      "bytes": 4432,
+      "sha256": "95d38821aa9ce62be3c65608d540be999cf78ade8bda1a40213de77d0fdc4d3f"
+    }
+  },
+  "retainedSubset": {
+    "frames": 9,
+    "sourceLines": [1, 2, 3, 16, 17, 18, 19, 20, 29, 30],
+    "evidenceSha256": "34a86d0d41649c7f37033b3b07d89554f0d6f7d3f26950fa17328fc9672c2d44",
+    "indexSha256": "66acc582c9599b2e528bbe4782348a736fae62f0836228ce8535c3ac56ba39ac"
+  },
+  "events": {
+    "records": 0,
+    "bytes": 0
+  },
+  "review": "Full source reviewed, original hash and all retained lines verified. One account request fails while phase remains reachable; same account recovers on next poll. No matchmaking or game is recorded before collection ends in Solo/Duo Lobby. Operator separately confirms account-value replacement on switching; host missing-value clearing marker test remains unreported."
+}

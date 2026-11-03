@@ -6,8 +6,17 @@ active account without a Riot API key. This first slice implements
 [fluxta/hub#21](https://github.com/fluxta/hub/issues/21).
 
 Windows is the only supported runtime platform. **Actual Windows/client
-verification is pending.** Follow the [Windows runbook](docs/acquisition/windows-runbook.md)
-to establish it. Automated tests use explicitly synthetic inputs.
+evidence is recorded** for [Solo/Duo](docs/acquisition/observations/2026-11-03-windows-session-02.md),
+[Flex](docs/acquisition/observations/2026-11-03-windows-session-03.md),
+and [normal draft](docs/acquisition/observations/2026-11-03-windows-session-04.md) games.
+Required match-queue families are covered. League/Fluxta restart recovery and
+sign-out/login states and account switching have [operator confirmation](docs/acquisition/observations/2026-11-03-manual-account-recovery.md).
+Actual-host account identity absence and recovery are also operator-confirmed.
+The [agreed verification pass](docs/acquisition/observations/2026-11-04-verification-summary.md)
+is recorded with explicit exceptions and measurement limits. Controlled whole-API failure is deferred by agreement;
+unranked verification is explicitly not run because no suitable account is
+available. These are recorded limitations of the current verification pass.
+Automated tests use explicitly synthetic inputs.
 
 ## Development
 
@@ -83,7 +92,81 @@ with an account endpoint failure stays available. A previous account is never
 substituted. No rank, credential, account or match state is persisted in this
 slice, and there are no Plugin Settings to configure.
 
+An absent account Source does not necessarily clear a Global Variable previously
+assigned through Set Variable. Reset both destination variables to a literal
+placeholder such as `NO_ACCOUNT` before resolving the Sources; use current
+Sources/account state for active-account conditions. The runbook includes a
+`SOURCE_ABSENT` marker check to distinguish skipped assignment from an actual
+stale identity returned by the host query.
+
 ## Windows acquisition evidence
+
+For a guided collection session on the Windows machine with League and Fluxta,
+start Fluxta, leave League closed, then run:
+
+```powershell
+pnpm verify:windows --out captures/windows-session-01 --seconds 3600
+```
+
+This builds the runner, runs `pnpm check`, links/restarts the plugin through the
+published CLI, records the existing sanitized capture, and writes `session.json`
+and `report.md` into a new directory. The session records the tested commit,
+whether the checkout was dirty, environment versions and completed preparation
+stages. Follow the runbook while recording: sign in/out, change accounts,
+restart clients and play the required queues yourself. Ctrl+C ends recording
+and lets the runner summarize completed capture lines. Use a fresh output
+directory for each attempt; existing directories are never overwritten.
+
+Completed sessions also produce compact analysis artifacts automatically. For
+an existing **finished** capture, run the offline extractor (no League/Fluxta
+launch or connection):
+
+```powershell
+pnpm capture:compact --input captures/windows-session-01/capture.jsonl --out captures/windows-session-01-compact
+```
+
+Start with `summary.md`. It includes observation counts, the retained-frame
+ratio, source SHA-256 and extraction limitations. `evidence.jsonl` contains
+selected full original JSONL lines: first/last observations, client/account and
+HTTP changes, account/ranked/version/lifecycle/session changes, roster changes,
+new response shapes and the first example of each event type per observation
+segment. By default the extractor also retains one neighboring frame before
+and after changes; `--context 0..5` adjusts that count. Clock, score, level and
+death ticks alone do not retain a frame.
+
+`evidence-index.jsonl` maps each retained line to its 1-based original
+`sourceLine` and selection reasons. `events.jsonl` contains deduplicated native
+events with original request times/source lines; same-id corrections remain as
+revisions. Event ids are scoped to conservative observation segments using
+observed game-id/clock/event-count resets and ambiguous Live recoveries. These
+segments do not prove that separate API responses belong to one match. The
+extractor flags potential gaps in the collector's last-50-event window and
+retains synthetic provenance. The original inventory remains in `report.md`.
+
+The extractor streams the source, keeps a small neighbor buffer and event/shape
+fingerprints, and never rewrites the original capture or overwrites output
+files. Use a new output directory for every run. Finish recording before
+extracting: truncated, foreign or changing input fails without a completed
+`summary.md`. This is selection from the existing allowlisted collector output,
+not a sanitizer for raw API dumps; review retained evidence before sharing.
+Read additional original lines when needed, using the index. Roster readiness,
+rank interpretation and public Fluxta checks still require runbook assessment.
+
+`--capture-only` explicitly skips the Fluxta link/start steps. To summarize an
+existing capture without launching anything or claiming it tested the current
+commit, run:
+
+```powershell
+pnpm verify:windows --input captures/windows-session-01/capture.jsonl --out captures/windows-summary-01
+```
+
+The report inventories observed states, transitions, HTTP statuses, candidate
+lifecycle labels and queue ids. It does not certify ranks, roster readiness or
+public Sources/External Connections in Fluxta. Installed CLI 0.8.2 supports
+link/lifecycle commands but has no public command to inspect those host values;
+complete the manual runbook checks and results template separately. Keep
+synthetic and actual-client evidence distinct. Local `probe-results/` diagnostics
+are ignored like captures; unrelated diagnostic JSON is not a capture input.
 
 After building, run the optional collector from PowerShell:
 

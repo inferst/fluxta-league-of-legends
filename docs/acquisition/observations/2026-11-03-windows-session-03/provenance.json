@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "kind": "reviewed-windows-acquisition-subset",
+  "synthetic": false,
+  "session": "windows-session-03",
+  "originalCapture": {
+    "availableAtReview": true,
+    "verifiedSha256": "d1590df3f6dae18efb273b88bc6558ab26fb960dfc33b20fa84291de032ddde8",
+    "bytes": 39947256,
+    "frames": 1691
+  },
+  "fullSourceReview": {
+    "retainedLinesCompared": 97,
+    "retainedLineMismatches": 0,
+    "eventRecordsCompared": 131,
+    "eventMismatches": 0,
+    "forbiddenFields": 0,
+    "unaliasedIdentities": 0
+  },
+  "reviewedSessionArtifacts": {
+    "evidence.jsonl": {
+      "bytes": 2068370,
+      "sha256": "c0b41d5d98329d41e64a6ce79dbe39c874844d8d833eb1d2a06b9e76c7c22d1c"
+    },
+    "evidence-index.jsonl": {
+      "bytes": 7067,
+      "sha256": "4d651d042cc715e2c0256f86aef22a62c77a6c1372b882f54197d25a96d3cde9"
+    },
+    "events.jsonl": {
+      "bytes": 53244,
+      "sha256": "e7c4378c759306640e988804248818c27e43fa9d7957087bb54fb3c4a6cb6178"
+    },
+    "session.json": {
+      "bytes": 433,
+      "sha256": "21021beeb97b45c8d107f07aa9b857026f5f9903e897f32f4c1afb5d339d1517"
+    },
+    "summary.md": {
+      "bytes": 4463,
+      "sha256": "f1114dce8f8e6678fd7b16ffc6d0a0e90b90ef373172c90ae1f5287f57f0f012"
+    }
+  },
+  "retainedSubset": {
+    "frames": 23,
+    "sourceLines": [
+      1, 2, 7, 81, 85, 189, 190, 191, 195, 196, 197, 242, 243, 1292, 1670, 1671,
+      1672, 1673, 1679, 1686, 1687, 1688, 1691, 1692
+    ],
+    "evidenceSha256": "87e37d8770bd20176fe4d45ae78839d910d6677ca24875453960e463698ceadf",
+    "indexSha256": "a8881c4d959bc43b9cf177c2df44ee666b1dd630bb41c7f7f720824cdb7b447f"
+  },
+  "events": {
+    "records": 131,
+    "segments": [1],
+    "firstEventID": 0,
+    "lastEventID": 130,
+    "nativeGameEnd": {
+      "eventID": 130,
+      "result": "Win",
+      "sourceLine": 1671
+    }
+  },
+  "review": "All full-source frames streamed; original hash, retained source lines and derived event payloads/timestamps verified. Projected identity aliases and absence of credential/raw-error fields checked. Actual Flex match reported by operator. Screen timing, exact visible app versions and privilege context were not recorded."
+}
