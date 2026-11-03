@@ -30,6 +30,7 @@ const projected = {
 };
 
 function frame(second: number): EvidenceFrame {
+  const data = structuredClone(projected);
   const get = (endpoint: string, data: unknown): EndpointObservation => ({
     endpoint,
     startedAt: at(second),
@@ -37,7 +38,7 @@ function frame(second: number): EvidenceFrame {
     status: 200,
     data: data as EndpointObservation["data"],
   });
-  const live = structuredClone(projected.live) as {
+  const live = data.live as {
     gameData: { gameTime: number };
     allPlayers: {
       level: number;
@@ -58,9 +59,9 @@ function frame(second: number): EvidenceFrame {
     clientState: "available",
     accountState: "identified",
     requests: [
-      get(endpoints.account, projected.account),
-      get(endpoints.ranked, projected.ranked),
-      get(endpoints.session, projected.session),
+      get(endpoints.account, data.account),
+      get(endpoints.ranked, data.ranked),
+      get(endpoints.session, data.session),
       get(endpoints.phase, "InProgress"),
       get(endpoints.live, live),
     ],
@@ -271,6 +272,24 @@ describe("streaming capture compaction", () => {
     expect(await readFile(join(out, "summary.md"), "utf8")).toContain(
       "Potential event-window gaps: 2",
     );
+  });
+
+  it("keeps reused events when the LCU game changes before a Live clock reset", async () => {
+    const frames = [frame(10), frame(11), frame(12)];
+    const session = (row: EvidenceFrame) =>
+      row.requests.find((request) => request.endpoint === endpoints.session)!
+        .data as { gameData: { gameId: number } };
+    session(frames[2]).gameData.gameId = 2;
+    expect(session(frames[0]).gameData.gameId).toBe(1);
+    const { input, out } = await setup([header, ...frames]);
+    await compactCapture(input, out, 0);
+    const events = await jsonl(join(out, "events.jsonl"));
+    expect(events.map((event) => [event.segment, event.sourceLine])).toEqual([
+      [1, 2],
+      [1, 2],
+      [2, 4],
+      [2, 4],
+    ]);
   });
 
   it("refuses truncated/foreign captures without a success summary, and never overwrites existing evidence", async () => {
