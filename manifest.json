@@ -1,5 +1,5 @@
 {
-  "name": "lol",
+  "name": "league-of-legends",
   "title": "League of Legends",
   "description": "Observe the local League client and active account without a Riot API key",
   "version": "0.1.0",

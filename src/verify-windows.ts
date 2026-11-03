@@ -100,7 +100,12 @@ async function verify(): Promise<void> {
       stage = "host";
       const cli = resolve("node_modules/@fluxta/cli/bin/run.js");
       console.log("Linking the build and starting the plugin in Fluxta...");
-      await command(process.execPath, [cli, "link", "dist/lol", "--json"]);
+      await command(process.execPath, [
+        cli,
+        "link",
+        "dist/league-of-legends",
+        "--json",
+      ]);
       await command(process.execPath, [cli, "restart"]);
       session.host =
         "plugin-running; Sources/External Connections not inspected";
@@ -119,7 +124,13 @@ async function verify(): Promise<void> {
     try {
       await command(
         process.execPath,
-        ["dist/lol/capture.mjs", "--out", input, "--seconds", String(seconds)],
+        [
+          "dist/league-of-legends/capture.mjs",
+          "--out",
+          input,
+          "--seconds",
+          String(seconds),
+        ],
         true,
       );
     } finally {

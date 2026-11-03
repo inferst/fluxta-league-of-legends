@@ -102,9 +102,14 @@ endpoint версии, если он доступен. Не заменяйте �
 Запустите Fluxta и зарегистрируйте Development Link:
 
 ```powershell
-pnpm exec fluxta link dist/lol
+pnpm exec fluxta link dist/league-of-legends
 pnpm exec fluxta link --status
 ```
+
+Если Development Link был зарегистрирован как `lol`, перед новой привязкой
+выполните `pnpm exec fluxta unlink lol`. В существующих тестовых сценариях заново
+выберите Sources плагина `league-of-legends`. Старые отчёты сохраняют прежний id,
+с которым выполнялись проверки.
 
 Проверьте, что плагин **League of Legends** запущен. В стандартном индикаторе
 External Connections должна быть одна запись **League of Legends**. Её id
@@ -115,8 +120,8 @@ External Connections должна быть одна запись **League of Leg
 
 Для чтения Sources создайте временный сценарий/кнопку с Set Variable, выбирая
 источники плагина в редакторе значения. Используйте отдельные Global Variables
-для `lol.clientState`, `lol.clientAvailable`, `lol.accountState`, `lol.accountId`,
-`lol.accountName` и `lol.observedAt`. Для проверки состояний также подойдёт If
+для `league-of-legends.clientState`, `league-of-legends.clientAvailable`, `league-of-legends.accountState`, `league-of-legends.accountId`,
+`league-of-legends.accountName` и `league-of-legends.observedAt`. Для проверки состояний также подойдёт If
 Else с соответствующим источником. Имена в интерфейсе приведены в README.
 
 Запускайте сценарий после каждого перехода. Отсутствующий Source может оставить
@@ -128,7 +133,7 @@ Riot ID или снимки экрана с ними; в отчёте доста
 
 1. Убедитесь, что `clientState` уже `absent`.
 2. Присвойте обеим тестовым Global Variables литерал `SOURCE_ABSENT`.
-3. Выполните только два Set Variable, читающих `lol.accountId` и `lol.accountName`.
+3. Выполните только два Set Variable, читающих `league-of-legends.accountId` и `league-of-legends.accountName`.
 4. Если маркер остаётся, Source не дал значения для присваивания. Если вместо
    маркера вернулась старая identity, это воспроизведение устаревших данных в
    реальном host-пути, которое нужно отдельно исследовать.

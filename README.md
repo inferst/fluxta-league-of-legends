@@ -31,10 +31,10 @@ Individual commands: `pnpm typecheck`, `pnpm lint`, `pnpm format:check`,
 `pnpm test`, `pnpm build`, `pnpm validate`. `pnpm format` formats the source.
 `pnpm dev` rebuilds on changes; run `pnpm exec fluxta restart` after a rebuild
 to restart a linked plugin. `pnpm check` runs all checks and validates both the
-Plugin Source Package and `dist/lol/` with the published CLI.
+Plugin Source Package and `dist/league-of-legends/` with the published CLI.
 
 The published SDK/CLI are pinned through `catalog:` in `pnpm-workspace.yaml`.
-The build bundles runtime packages; `dist/lol/` needs no `node_modules` or
+The build bundles runtime packages; `dist/league-of-legends/` needs no `node_modules` or
 checkout. See [agent instructions](AGENTS.md), [glossary](CONTEXT.md) and
 [issue workflow](docs/agents/issue-tracker.md).
 
@@ -44,9 +44,15 @@ Start Fluxta >=0.9.0 on the same computer as League, then from this checkout:
 
 ```powershell
 pnpm build
-pnpm exec fluxta link dist/lol
+pnpm exec fluxta link dist/league-of-legends
 pnpm exec fluxta link --status
 ```
+
+If a Development Link was previously registered as `lol`, run
+`pnpm exec fluxta unlink lol` before linking the new build. Reselect Sources in
+existing test scenarios under `league-of-legends`; their fully qualified names
+use the new package id. Historical verification reports retain the earlier id
+used during those sessions.
 
 Fluxta's standard plugin connection indicator reports one External Connection,
 **League of Legends**, with the stable id `local-client`. It is connected when
@@ -70,14 +76,14 @@ All are Query Sources. They read the latest completed in-memory observation;
 resolving a Source does no process or network I/O. Use them in a scenario's If
 Else condition or as a Value Source for Set Variable.
 
-| Source                | Type    | Meaning                                                                        |
-| --------------------- | ------- | ------------------------------------------------------------------------------ |
-| `lol.clientState`     | string  | `checking`, `absent`, `available`, `inaccessible`, `unsupported`               |
-| `lol.clientAvailable` | boolean | Whether the League client is reachable now                                     |
-| `lol.accountState`    | string  | `identified`, `unidentified`, `unavailable`                                    |
-| `lol.accountId`       | string  | Current account PUUID; absent without a usable identity                        |
-| `lol.accountName`     | string  | Current Riot ID (`gameName#tagLine`); absent if either part is missing         |
-| `lol.observedAt`      | string  | Last completed client observation, UTC ISO 8601; absent before the first cycle |
+| Source                              | Type    | Meaning                                                                        |
+| ----------------------------------- | ------- | ------------------------------------------------------------------------------ |
+| `league-of-legends.clientState`     | string  | `checking`, `absent`, `available`, `inaccessible`, `unsupported`               |
+| `league-of-legends.clientAvailable` | boolean | Whether the League client is reachable now                                     |
+| `league-of-legends.accountState`    | string  | `identified`, `unidentified`, `unavailable`                                    |
+| `league-of-legends.accountId`       | string  | Current account PUUID; absent without a usable identity                        |
+| `league-of-legends.accountName`     | string  | Current Riot ID (`gameName#tagLine`); absent if either part is missing         |
+| `league-of-legends.observedAt`      | string  | Last completed client observation, UTC ISO 8601; absent before the first cycle |
 
 `absent` means no League client process was found. `inaccessible` means discovery
 failed, credentials could not be read, several clients were found, or local

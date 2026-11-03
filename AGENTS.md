@@ -22,7 +22,7 @@ Issues live at `inferst/fluxta-league-of-legends`; see
   `@fluxta/cli` through the catalog in `pnpm-workspace.yaml`. The installed SDK
   typings are authoritative. Do not patch the host or `node_modules` to bypass
   a contract gap: record it in this repo's issue and label `ready-for-human`.
-- Runtime dependencies must be bundled into `dist/lol/`; Node builtins may stay
+- Runtime dependencies must be bundled into `dist/league-of-legends/`; Node builtins may stay
   external. Build with `pnpm build`. Run `pnpm check` before handing work over.
 - Windows is the only supported runtime platform. Tests on other systems do not
   establish real Windows support. Keep synthetic fixtures clearly marked and

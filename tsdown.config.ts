@@ -9,11 +9,11 @@ export default defineConfig({
     "src/compact-capture.ts",
   ],
   format: ["esm"],
-  outDir: "dist/lol",
+  outDir: "dist/league-of-legends",
   clean: true,
   deps: { alwaysBundle: (id) => !isBuiltin(id), onlyBundle: false },
   copy: [
     { from: "manifest.json" },
-    { from: "icons/*.svg", to: "dist/lol/icons" },
+    { from: "icons/*.svg", to: "dist/league-of-legends/icons" },
   ],
 });
