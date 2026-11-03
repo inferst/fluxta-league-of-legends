@@ -17,7 +17,9 @@
     "test": "vitest run",
     "validate": "fluxta validate --warnings-as-errors",
     "check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test && pnpm build && pnpm validate",
-    "capture": "node dist/lol/capture.mjs"
+    "capture": "node dist/lol/capture.mjs",
+    "capture:compact": "pnpm build && node dist/lol/compact-capture.mjs",
+    "verify:windows": "pnpm build && node dist/lol/verify-windows.mjs"
   },
   "dependencies": {
     "@fluxta/sdk": "catalog:"
