@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "kind": "reviewed-windows-acquisition-subset",
+  "synthetic": false,
+  "session": "windows-session-02",
+  "originalCapture": {
+    "availableAtReview": false,
+    "reportedSha256": "c244b84dd648f8cf5e7bd39c74e8dc242f1a8684e2664ebde72f2be7a4365b60",
+    "reportedBytes": 32913908,
+    "reportedFrames": 1578
+  },
+  "reviewedSessionArtifacts": {
+    "evidence.jsonl": {
+      "bytes": 2022855,
+      "sha256": "cad8a160665ff3315f5989e06adb4dcb942b66dcdcddc53f83cf6c71105d42d1"
+    },
+    "evidence-index.jsonl": {
+      "bytes": 8816,
+      "sha256": "a192df823d99edd74ada1ee2298a34b3c630d4c20c46b2948612618b9e0cdef8"
+    },
+    "events.jsonl": {
+      "bytes": 39139,
+      "sha256": "eaaaddadb15cb353f509e072767f28abf2045f2789d3831c9f8cebb97e27b905"
+    },
+    "session.json": {
+      "bytes": 433,
+      "sha256": "d5bfce7b3a920cee031eee1f0f9b4c8bf8a39dc27bede05314be46142b8d6a80"
+    },
+    "summary.md": {
+      "bytes": 4749,
+      "sha256": "29d0e7612ff91ed0e59bb8943eaa47174812f2a53c6e969f9b3c091f899c7489"
+    }
+  },
+  "retainedSubset": {
+    "frames": 22,
+    "sourceLines": [
+      1, 2, 20, 26, 27, 149, 184, 272, 374, 375, 376, 379, 380, 381, 385, 386,
+      1547, 1548, 1549, 1557, 1565, 1571, 1579
+    ],
+    "evidenceSha256": "c00a8c205ec28781466b706e2ac3214a7222a61854842fb2f2c683264618cf76",
+    "indexSha256": "25b099ef473946321390d637301d4a237d620f48c2e84f8f7171fff47f48b8f0"
+  },
+  "events": {
+    "records": 95,
+    "segments": [1],
+    "firstEventID": 0,
+    "lastEventID": 94
+  },
+  "review": "Projected collector evidence reviewed for identity aliases, absence of credential/raw-error fields, original source-line mapping and observed API contracts. Full source hash and omitted polls could not be rechecked. Operator confirms partial host checking and accepts data accuracy; exact screen times and visible versions were not recorded."
+}

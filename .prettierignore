@@ -1,0 +1,6 @@
+pnpm-lock.yaml
+dist/
+captures/
+probe-results/
+docs/acquisition/observations/**/*.jsonl
+node_modules/

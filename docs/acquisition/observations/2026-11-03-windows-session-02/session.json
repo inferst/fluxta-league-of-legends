@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "startedAt": "2026-11-03T13:37:57.037Z",
+  "windowsRelease": "10.0.26300",
+  "nodeVersion": "v22.23.4",
+  "checks": "passed",
+  "host": "plugin-running; Sources/External Connections not inspected",
+  "capture": "completed",
+  "failedStage": null,
+  "testedCommit": "365edb10e14e166f495a69146e9703afdbdc61ce",
+  "dirty": true,
+  "packageManager": "pnpm@10.34.3",
+  "finishedAt": "2026-11-03T14:19:29.124Z"
+}

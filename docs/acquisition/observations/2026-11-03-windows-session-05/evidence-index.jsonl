@@ -1,0 +1,10 @@
+{"evidenceLine":1,"sourceLine":1,"sessionEvidenceLine":1,"reasons":["header"]}
+{"evidenceLine":2,"sourceLine":2,"sessionEvidenceLine":2,"reasons":["account-identity","client/account-state","first-frame","http-status","lifecycle","new-response-shape","ranked-input","version"]}
+{"evidenceLine":3,"sourceLine":3,"sessionEvidenceLine":3,"reasons":["after-change"]}
+{"evidenceLine":4,"sourceLine":16,"sessionEvidenceLine":4,"reasons":["before-change"]}
+{"evidenceLine":5,"sourceLine":17,"sessionEvidenceLine":5,"reasons":["before-change","http-status","lcu-roster","lifecycle","new-response-shape","session-metadata"]}
+{"evidenceLine":6,"sourceLine":18,"sessionEvidenceLine":6,"reasons":["account-identity","after-change","before-change","client/account-state","http-status"]}
+{"evidenceLine":7,"sourceLine":19,"sessionEvidenceLine":7,"reasons":["account-identity","after-change","client/account-state","http-status"]}
+{"evidenceLine":8,"sourceLine":20,"sessionEvidenceLine":8,"reasons":["after-change"]}
+{"evidenceLine":9,"sourceLine":29,"sessionEvidenceLine":9,"reasons":["before-last-frame"]}
+{"evidenceLine":10,"sourceLine":30,"sessionEvidenceLine":10,"reasons":["last-frame"]}

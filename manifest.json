@@ -1,0 +1,58 @@
+{
+  "name": "league-of-legends",
+  "title": "League of Legends",
+  "description": "Observe the local League client and active account without a Riot API key",
+  "version": "0.1.0",
+  "author": "Mikhail Morozov",
+  "license": "MIT",
+  "homepage": "https://github.com/inferst/fluxta-league-of-legends",
+  "repository": "https://github.com/inferst/fluxta-league-of-legends",
+  "maintainers": ["inferst"],
+  "minAppVersion": "0.9.0",
+  "platforms": ["windows"],
+  "categories": ["gaming"],
+  "apiVersion": 1,
+  "main": "index.mjs",
+  "icon": "icons/swords.svg",
+  "actions": [],
+  "sources": [
+    {
+      "key": "clientState",
+      "name": "League Client State",
+      "type": "string",
+      "resolve": "query",
+      "operand": { "editor": "select", "options": "clientStates" }
+    },
+    {
+      "key": "clientAvailable",
+      "name": "League Client Available",
+      "type": "boolean",
+      "resolve": "query"
+    },
+    {
+      "key": "accountState",
+      "name": "League Account State",
+      "type": "string",
+      "resolve": "query",
+      "operand": { "editor": "select", "options": "accountStates" }
+    },
+    {
+      "key": "accountId",
+      "name": "League Active Account PUUID",
+      "type": "string",
+      "resolve": "query"
+    },
+    {
+      "key": "accountName",
+      "name": "League Active Account Riot ID",
+      "type": "string",
+      "resolve": "query"
+    },
+    {
+      "key": "observedAt",
+      "name": "League Client Observation Time",
+      "type": "string",
+      "resolve": "query"
+    }
+  ]
+}

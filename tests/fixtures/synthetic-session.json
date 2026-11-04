@@ -1,0 +1,107 @@
+{
+  "provenance": "Synthetic contract candidate, not a Windows capture; adapted to documented Live Client fields and candidate LCU inputs. Never establishes real-client verification.",
+  "account": {
+    "puuid": "synthetic-puuid-a",
+    "summonerId": 1001,
+    "gameName": "Synthetic Player",
+    "tagLine": "TEST",
+    "displayName": "Old Name",
+    "summonerLevel": 50
+  },
+  "ranked": {
+    "queues": [
+      {
+        "queueType": "RANKED_SOLO_5x5",
+        "tier": "GOLD",
+        "division": "II",
+        "leaguePoints": 0,
+        "wins": 20,
+        "losses": 18
+      },
+      {
+        "queueType": "RANKED_FLEX_SR",
+        "tier": "SILVER",
+        "division": "IV",
+        "leaguePoints": 40,
+        "wins": 8,
+        "losses": 5
+      }
+    ]
+  },
+  "session": {
+    "phase": "InProgress",
+    "gameData": {
+      "gameId": 9001,
+      "mapId": 11,
+      "gameMode": "CLASSIC",
+      "queue": { "id": 420, "type": "RANKED_SOLO_5x5", "mapId": 11 },
+      "teamOne": [
+        {
+          "puuid": "synthetic-puuid-a",
+          "summonerId": 1001,
+          "championId": 1,
+          "selectedPosition": "middle"
+        }
+      ],
+      "teamTwo": [
+        { "puuid": "synthetic-puuid-b", "summonerId": 1002, "championId": 2 }
+      ]
+    }
+  },
+  "live": {
+    "activePlayer": {
+      "riotId": "Synthetic Player#TEST",
+      "riotIdGameName": "Synthetic Player",
+      "riotIdTagLine": "TEST",
+      "summonerName": "Old Name",
+      "level": 1
+    },
+    "allPlayers": [
+      {
+        "riotId": "Synthetic Player#TEST",
+        "riotIdGameName": "Synthetic Player",
+        "riotIdTagLine": "TEST",
+        "summonerName": "Old Name",
+        "championName": "Annie",
+        "rawChampionName": "game_character_displayname_Annie",
+        "team": "ORDER",
+        "position": "MIDDLE",
+        "level": 1,
+        "isDead": false,
+        "respawnTimer": 0,
+        "scores": {
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "creepScore": 0,
+          "wardScore": 0
+        }
+      },
+      {
+        "riotId": "Synthetic Opponent#TEST",
+        "championName": "Olaf",
+        "team": "CHAOS",
+        "position": ""
+      }
+    ],
+    "gameData": {
+      "gameMode": "CLASSIC",
+      "mapName": "Map11",
+      "mapNumber": 11,
+      "gameTime": 2.5
+    },
+    "events": {
+      "Events": [
+        { "EventID": 0, "EventName": "GameStart", "EventTime": 0 },
+        {
+          "EventID": 1,
+          "EventName": "ChampionKill",
+          "EventTime": 2.5,
+          "KillerName": "Synthetic Player#TEST",
+          "VictimName": "Synthetic Opponent#TEST",
+          "Assisters": []
+        }
+      ]
+    }
+  }
+}

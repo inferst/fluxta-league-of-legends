@@ -1,0 +1,39 @@
+{
+  "name": "league-of-legends",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.34.3",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "validate": "fluxta validate --warnings-as-errors",
+    "check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test && pnpm build && pnpm validate",
+    "capture": "node dist/league-of-legends/capture.mjs",
+    "capture:compact": "pnpm build && node dist/league-of-legends/compact-capture.mjs",
+    "verify:windows": "pnpm build && node dist/league-of-legends/verify-windows.mjs"
+  },
+  "dependencies": {
+    "@fluxta/sdk": "catalog:"
+  },
+  "devDependencies": {
+    "@eslint/js": "catalog:",
+    "@fluxta/cli": "catalog:",
+    "@types/node": "catalog:",
+    "eslint": "catalog:",
+    "eslint-config-prettier": "catalog:",
+    "prettier": "catalog:",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:",
+    "vitest": "catalog:"
+  }
+}
